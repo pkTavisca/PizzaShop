@@ -11,5 +11,7 @@ namespace PizzaShoppingCenter.Pizzas
         public bool IsVeg { get => true; }
         public PizzaSize Size { get; set; }
         public List<Toppings> Toppings { get; set; }
+
+        public string Name => "Veg Pizza";
     }
 }
