@@ -6,6 +6,8 @@ namespace PizzaShoppingCenter.Contracts
 {
     public interface IShoppingCart
     {
-        List<IPizza> Cart { get; set; }
+        void Add(IPizza pizza);
+        void Remove(IPizza pizza);
+        List<IPizza> GetAllItems();
     }
 }

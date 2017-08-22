@@ -7,6 +7,20 @@ namespace PizzaShoppingCenter
 {
     public class ShoppingCart : IShoppingCart
     {
-        public List<IPizza> Cart { get; set; }
+        private List<IPizza> _cart = new List<IPizza>();
+        public void Add(IPizza pizza)
+        {
+            _cart.Add(pizza);
+        }
+
+        public List<IPizza> GetAllItems()
+        {
+            return _cart;
+        }
+
+        public void Remove(IPizza pizza)
+        {
+            _cart.Remove(pizza);
+        }
     }
 }
