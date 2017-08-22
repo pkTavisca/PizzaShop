@@ -44,6 +44,7 @@ namespace PizzaShopFixture
         {
             ShoppingPage page = new ShoppingPage();
             page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large);
+            page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large);
             Assert.True(page.SeeCart().Count > 0);
         }
     }
