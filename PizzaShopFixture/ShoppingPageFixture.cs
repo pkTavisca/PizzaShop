@@ -16,11 +16,27 @@ namespace PizzaShopFixture
             ShoppingPage page = new ShoppingPage();
             Assert.True(page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large));
         }
+
         [Fact]
         public void Adding_a_wrong_pizza_sshould_return_false()
         {
             ShoppingPage page = new ShoppingPage();
             Assert.False(page.AddToCart("vefsdwsdg", null, PizzaSize.Large));
+        }
+
+        [Fact]
+        public void Order_should_not_be_placed_if_cart_is_empty()
+        {
+            ShoppingPage page = new ShoppingPage();
+            Assert.True(page.PlaceOrder().Equals("Order not placed."));
+        }
+
+        [Fact]
+        public void Order_should_be_placed_if_cart_contains_anything()
+        {
+            ShoppingPage page = new ShoppingPage();
+            page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large);
+            Assert.True(page.PlaceOrder().Equals("Order Placed."));
         }
     }
 }

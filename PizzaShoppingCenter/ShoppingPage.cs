@@ -23,18 +23,22 @@ namespace PizzaShoppingCenter
             Cart.Add(pizza);
             return true;
         }
+
         public void RemoveFromCart(IPizza pizza)
         {
             if (pizza != null)
                 Cart.Remove(pizza);
         }
+
         public List<IPizza> SeeCart()
         {
             return Cart.GetAllItems();
         }
-        public void PlaceOrder()
-        {
 
+        public string PlaceOrder()
+        {
+            if (Cart.GetAllItems().Count != 0) return "Order Placed.";
+            else return "Order not placed.";
         }
     }
 }
