@@ -38,5 +38,13 @@ namespace PizzaShopFixture
             page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large);
             Assert.True(page.PlaceOrder().Equals("Order Placed."));
         }
+
+        [Fact]
+        public void SeeCart_should_return_a_non_empty_list_after_adding_pizzas()
+        {
+            ShoppingPage page = new ShoppingPage();
+            page.AddToCart("veg", new List<Toppings>(), PizzaSize.Large);
+            Assert.True(page.SeeCart().Count > 0);
+        }
     }
 }
